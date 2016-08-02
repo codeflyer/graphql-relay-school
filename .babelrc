@@ -1,0 +1,43 @@
+{
+  "passPerPreset": true,
+  "presets": [
+    // The react should be before the es2015 https://phabricator.babeljs.io/T6662
+    "react",
+    "es2015",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-runtime"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        [
+          "./client/build/babelRelayPlugin",
+          "react-transform",
+          {
+            "transforms": [
+              {
+                "transform": "react-transform-hmr",
+                // if you use React Native, pass "react-native" instead:
+                "imports": [
+                  "react"
+                ],
+                // this is important for Webpack HMR:
+                "locals": [
+                  "module"
+                ]
+              }
+            ]
+            // note: you can put more transforms into array
+            // this is just one of them!
+          }
+        ]
+      ]
+    },
+    "production": {
+    },
+    "test": {
+    }
+  }
+}
