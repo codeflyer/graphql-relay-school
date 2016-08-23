@@ -1,7 +1,10 @@
+// USE this version in Apollo
+
 import {
   GraphQLObjectType,
   GraphQLInt,
   GraphQLString,
+  GraphQLID,
   GraphQLInputObjectType
 } from 'graphql';
 
@@ -10,39 +13,44 @@ import { Person } from '../instances/person';
 
 const AddLikeToPersonInput = new GraphQLInputObjectType(
   {
-    name: 'AddLikeToPersonInput',
+    name: 'AddLikeInput',
     fields: {
       personId: {
         type: GraphQLInt
-      },
-      clientMutationId: {
-        type: GraphQLString
       }
+      // ,
+      // clientMutationId: {
+      //   type: GraphQLString
+      // }
     }
   }
 );
 
 const AddLikeToPersonPayload = new GraphQLObjectType(
   {
-    name: 'AddLikeToPersonPayload',
+    name: 'AddLikePayload',
     fields: {
       person: {
         type: Person.type
-      },
-      clientMutationId: {
-        type: GraphQLString
       }
+      // ,
+      // clientMutationId: {
+      //   type: GraphQLString
+      // }
     }
   }
 );
 
-export const AddLikeToPerson = {
+export const AddLike = {
   type: AddLikeToPersonPayload,
   description: 'Updates the count',
   args: {
-    input: {
-      type: AddLikeToPersonInput
+    personId: {
+      type: GraphQLID
     }
   },
-  resolve: (parent, { input }) => addLike(input)
+  resolve: (parent, { personId }) => {
+    console.log('Like to: ', personId);
+    return addLike({ personId });
+  }
 };

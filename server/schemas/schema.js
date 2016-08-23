@@ -13,6 +13,7 @@ import { PrincipalsList } from './lists/principals';
 import { Teacher } from './instances/teacher';
 import { TeachersList } from './lists/teachers';
 import { AddLikeToPerson } from './mutations/addLikeToPerson';
+// import { AddLike } from './mutations/addLike';
 
 const queryDefinitions = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -41,7 +42,6 @@ const queryDefinitions = new GraphQLObjectType({
         })
       }),
       resolve: () => ''
-
     }
   }
 });
@@ -50,6 +50,7 @@ const mutationDefinitions = new GraphQLObjectType({
   name: 'RootMutationType',
   fields: {
     addLikeToPerson: AddLikeToPerson
+    // , addLike: AddLike
   }
 });
 

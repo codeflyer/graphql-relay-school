@@ -37,15 +37,16 @@ export const PersonRow = Relay.createContainer(PersonRowComponent, {
   fragments: {
     person: () => Relay.QL`
       fragment on person {
-        id,
+        id
         name {
-          first, last
-        },
-        email,
-        cell,
-        picture { thumbnail },
-        role,
-        ${Like.getFragment('person')},
+          first
+          last
+        }
+        email
+        cell
+        picture { thumbnail }
+        role
+        ${Like.getFragment('person')}
         ${LikeStoryMutation.getFragment('person')}
       }
     `

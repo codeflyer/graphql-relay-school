@@ -1,7 +1,7 @@
 import usersData from './dataset';
 
 export function addLike(input) {
-  const person = usersData.find(user => user.id === input.personId);
+  const person = usersData.find(user => user.id == input.personId);
   if (person) {
     person.like++;
   }

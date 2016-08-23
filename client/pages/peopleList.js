@@ -7,7 +7,9 @@ class PeopleListComponent extends React.Component {
   render() {
     return (
       <div>
-        {this.props.peopleview.people.map(person => <PersonRow key={person.id} person={person} />)}
+        {this.props.peopleview.people.map(
+          person => <PersonRow key={person.__dataID__} person={person} /> ) // eslint-disable-line
+        }
       </div>
     );
   }
