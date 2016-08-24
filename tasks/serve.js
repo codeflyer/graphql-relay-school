@@ -37,6 +37,10 @@ module.exports = (gulp, config) => {
               '/graphql': {
                 target: 'http://localhost:3000',
                 secure: false
+              },
+              '/socket.io/*': {
+                target: 'ws://localhost:3000',
+                ws: true
               }
             }
           }).listen(config.server.port, 'localhost', (err) => {

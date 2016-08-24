@@ -4,13 +4,13 @@ const config = require('config');
 const webpack = require('webpack');
 module.exports = {
   entry: {
-    main: ["./client/app.js"],
-    graphiql: ["./graphiql/index.jsx"]
+    main: ['./client/app.js'],
+    graphiql: ['./graphiql/index.jsx']
   },
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "[name].bundle.js",
-    chunkFilename: "[id].chunk.js"
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].bundle.js',
+    chunkFilename: '[id].chunk.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']

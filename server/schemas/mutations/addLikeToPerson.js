@@ -13,7 +13,7 @@ const AddLikeToPersonInput = new GraphQLInputObjectType(
     name: 'AddLikeToPersonInput',
     fields: {
       personId: {
-        type: GraphQLInt
+        type: GraphQLString
       },
       clientMutationId: {
         type: GraphQLString

@@ -11,6 +11,9 @@
     "phantomjs": true,
     "es6": true
   },
+  "plugins": [
+    "babel"
+  ],
   "rules": {
     "no-use-before-define": 0,
     "no-param-reassign": 0,
