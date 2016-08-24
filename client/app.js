@@ -11,6 +11,14 @@ import useRelay from 'react-router-relay';
 
 import routes from './routes';
 
+// Socket layer
+import SocketIONetworkLayer from './network/SocketIONetworkLayer';
+import io from 'socket.io-client';
+const socket = io();
+Relay.injectNetworkLayer(new SocketIONetworkLayer(socket));
+
+// ------------
+
 const history = useRouterHistory(createHashHistory)();
 
 const mountNode = document.createElement('div');
